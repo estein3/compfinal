@@ -1,6 +1,7 @@
 let music;
 let bestback;
 let a, b, c, d, e, f;
+let button;
 
 //categories
 let athleticshorts, fancyskirt, flowerskirt, jeans, jeanshorts, leggings, sweatpants, whitejeans, whiteshorts;
@@ -46,7 +47,7 @@ let backy = 800;
 
 function preload(){
   
- music = loadSound('music.mp3');
+ music = loadSound('music.mp3', loaded);
 
   
   
@@ -172,12 +173,18 @@ yellowback.hide();
   
 }
 
+function loaded(){
+  button = createButton('play');
+  button.mousePressed(togglePlaying);
+  button.position(0, 0);
+}
+
 
 function setup() {
  // createCanvas(800, 800);
   noCanvas();
   
-  music.loop();
+  // music.loop();
   
   bestback.show();
   bestback.position(0,0);
@@ -708,4 +715,15 @@ if(accessval == 'anklet'){
  
   
 //end of draw
+}
+
+
+function togglePlaying() {
+  if(!music.isPlaying()){
+    music.loop();
+    button.html("pause");
+  } else {
+    music.pause();
+    button.html("play");
+  }
 }
