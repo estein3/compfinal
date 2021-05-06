@@ -174,7 +174,7 @@ yellowback.hide();
 }
 
 function loaded(){
-  button = createButton('play');
+  button = createButton('Play music');
   button.mousePressed(togglePlaying);
   button.position(0, 0);
 }
@@ -721,9 +721,9 @@ if(accessval == 'anklet'){
 function togglePlaying() {
   if(!music.isPlaying()){
     music.loop();
-    button.html("pause");
+    button.html("Pause music");
   } else {
     music.pause();
-    button.html("play");
+    button.html("Play music");
   }
 }
